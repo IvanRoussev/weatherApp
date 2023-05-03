@@ -1,10 +1,10 @@
 import './App.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import SearchCity from './components/SearchCity';
 
 function App() {
   const [data, setData] = useState([]);
-  const [city, setCity] = useState('Vancouver');
 
   const fetchdata = async (city, days) => {
     const params = {
@@ -23,12 +23,13 @@ function App() {
       return null;
     }
   };
-  useEffect(() => {
-    fetchdata('Vancouver', '5');
-  }, [city]);
 
   console.log(data);
-  return <div className='App'></div>;
+  return (
+    <div className='App'>
+      <SearchCity fetchdata={fetchdata} />
+    </div>
+  );
 }
 
 export default App;
