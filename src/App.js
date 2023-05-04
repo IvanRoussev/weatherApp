@@ -2,9 +2,13 @@ import './App.css';
 import { useState } from 'react';
 import axios from 'axios';
 import SearchCity from './components/SearchCity';
+import ShowCityinfo from './components/ShowCityInfo';
+// import Header from './components/Header';
 
 function App() {
   const [data, setData] = useState([]);
+
+  console.log(data);
 
   const fetchdata = async (city, days) => {
     const params = {
@@ -19,15 +23,29 @@ function App() {
       );
       setData(response.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       return null;
     }
   };
 
-  console.log(data);
+  // useEffect(() => {
+  //   fetchdata('vancouver', '1');
+  // }, []);
+
+  // function renderCity() {
+  //   if (data.length === 0) {
+  //     return <ShowCityinfo cityData={data['location'] || ''} />;
+  //   } else {
+  //     return;
+  //   }
+  // }
+
+  // console.log(data);
   return (
     <div className='App'>
+      {/* <Header /> */}
       <SearchCity fetchdata={fetchdata} />
+      <ShowCityinfo cityData={data['location'] || ''} />
     </div>
   );
 }

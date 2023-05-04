@@ -13,12 +13,28 @@ function SearchCity({ fetchdata }) {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Enter City:</label>
-        <input className='input' value={city} onChange={handleChange} />
-        <button>Search</button>
-      </form>
+    <div class='topnav'>
+      <div className='header'>
+        <h1 className='title'>The Weather</h1>
+      </div>
+
+      <div className='searchbar'>
+        <form onSubmit={handleSubmit}>
+          <input
+            name='search'
+            className='input'
+            placeholder='Enter Location..'
+            value={city}
+            onChange={handleChange}
+          />
+          <button type='submit'>Search</button>
+        </form>
+      </div>
+
+      <div class='container'>
+        <h2 className='about'>About</h2>
+        <h2 className='news'>News</h2>
+      </div>
     </div>
   );
 }
