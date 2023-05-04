@@ -17,16 +17,16 @@ function ShowWeather({ currentWeatherData }) {
         </div>
         <div className='box-containers'>
           <div className='temps-container'>
-            <div className='temp-item'>{temp}</div>
-            <div className='feelslike-item'>Feels Like {feelLikeTemp}</div>
+            <div className='temp-item'>{temp}°C</div>
+            <div className='feelslike-item'>Feels Like {feelLikeTemp}°C</div>
           </div>
           <div className='grid-container'>
-            <div className='precip-item'>Precip {precipitation}</div>
-            <div className='uv-item'>UV {uv}</div>
+            <div className='precip-item'>Precip {precipitation}mm</div>
             <div className='wind-item'>
               {windKPH} km/h {windDirection}
             </div>
-            <div className='wind-gust-item'>Wind Gust {windGustKPH}</div>
+            <div className='uv-item'>UV {uv}</div>
+            <div className='wind-gust-item'>Wind Gust {windGustKPH} km/h</div>
           </div>
         </div>
       </div>
