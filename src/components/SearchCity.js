@@ -27,7 +27,9 @@ function SearchCity({ fetchdata }) {
             value={city}
             onChange={handleChange}
           />
-          <button type='submit'>Search</button>
+          <button className='search-button' type='submit'>
+            Search
+          </button>
         </form>
       </div>
 
