@@ -1,6 +1,4 @@
 function ShowCityinfo({ cityData }) {
-  console.log(cityData);
-
   if (cityData === '') {
     return;
   } else {

@@ -1,6 +1,50 @@
+import { useState, useEffect } from 'react';
+
+const colors = {
+  darkBlue: '#023047',
+  blue: '#219EBC',
+  lighBlue: '#8ECAE6',
+  evenlighterBlue: '#caf0f8',
+  orange: '#FB8500',
+  lightRed: '#d00000',
+  red: '#9d0208',
+  darkRed: '#6a040f',
+};
+
+function updateColor(temp) {
+  if (temp <= -20) {
+    return colors.darkBlue;
+  } else if (-20 < temp && temp <= -10) {
+    return colors.blue;
+  } else if (-10 < temp && temp <= 0) {
+    return colors.lighBlue;
+  } else if (0 < temp && temp <= 10) {
+    return colors.evenlighterBlue;
+  } else if (10 < temp && temp <= 20) {
+    return colors.orange;
+  } else if (20 < temp && temp <= 30) {
+    return colors.lightRed;
+  } else if (30 < temp && temp <= 40) {
+    return colors.red;
+  } else if (40 < temp && temp <= 50) {
+    return colors.darkRed;
+  }
+}
+
 function ShowWeather({ currentWeatherData }) {
+  const [color, setColor] = useState('');
+
+  useEffect(() => {
+    if (currentWeatherData === undefined) {
+      return;
+    } else {
+      const temp = currentWeatherData['temp_c'];
+      setColor(updateColor(temp));
+    }
+  }, [currentWeatherData]);
+
   if (currentWeatherData === undefined) {
-    return;
+    return null;
   } else {
     const feelLikeTemp = currentWeatherData['feelslike_c'];
     const temp = currentWeatherData['temp_c'];
@@ -10,13 +54,14 @@ function ShowWeather({ currentWeatherData }) {
     const windDirection = currentWeatherData['wind_dir'];
     const uv = currentWeatherData['uv'];
     const precipitation = currentWeatherData['precip_mm'];
+
     return (
       <div className='current-weather-container'>
         <div className='weather-condition'>
           <h3>{weatherCondition}</h3>
         </div>
         <div className='box-containers'>
-          <div className='temps-container'>
+          <div className='temps-container' style={{ backgroundColor: color }}>
             <div className='temp-item'>{temp}°C</div>
             <div className='feelslike-item'>Feels Like {feelLikeTemp}°C</div>
           </div>

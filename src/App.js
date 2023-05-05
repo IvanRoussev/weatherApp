@@ -8,8 +8,6 @@ import ShowWeather from './components/ShowWeather';
 function App() {
   const [data, setData] = useState([]);
 
-  console.log(data);
-
   const fetchdata = async (city, days) => {
     const params = {
       key: '1faa2f6b0fb04787bf5215247230305',
@@ -28,7 +26,6 @@ function App() {
     }
   };
 
-  console.log(data);
   return (
     <div className='App'>
       {/* <Header /> */}

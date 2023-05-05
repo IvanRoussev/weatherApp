@@ -13,7 +13,7 @@ function SearchCity({ fetchdata }) {
   };
 
   return (
-    <div class='topnav'>
+    <div className='topnav'>
       <div className='header'>
         <h1 className='title'>The Weather</h1>
       </div>
@@ -33,9 +33,16 @@ function SearchCity({ fetchdata }) {
         </form>
       </div>
 
-      <div class='container'>
+      <div className='container'>
         <h2 className='about'>About</h2>
         <h2 className='news'>News</h2>
+        {/* <a
+          className='github-icon'
+          href='https://github.com/IvanRoussev/ExploreMovies'
+          target='_blank'
+        >
+          <img src={github} />
+        </a> */}
       </div>
     </div>
   );
