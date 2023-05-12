@@ -2,6 +2,28 @@ function EachDayForecast({ forecast }) {
   const day = forecast['day'];
 
   const date = forecast['date'];
+
+  const monthNames = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
+
+  //Convert from 2023-05-07 to May 7
+  const dateObj = new Date(date);
+  const month = monthNames[dateObj.getMonth()];
+  const currentDay = dateObj.getDate();
+  const currDate = `${month} ${currentDay}`;
+
   const condition = day['condition']['text'];
 
   const avgTemp = day['avgtemp_c'];
@@ -19,10 +41,14 @@ function EachDayForecast({ forecast }) {
   return (
     <>
       <div className='each-day-container'>
-        <div className='date'>{date}</div>
+        <div className='date'>{currDate}</div>
         <div>
           <h2 className='condition'>{condition}</h2>
           <h3 className='avg-temp'>{avgTemp}°C</h3>
+        </div>
+        <div className='max-min-temp'>
+          <div>↑ {maxTemp}°C</div>
+          <div>↓ {minTemp}°C</div>
         </div>
       </div>
     </>

@@ -154,9 +154,16 @@ html {
   margin-left: 10px;
 }
 
+.max-min-temp {
+  display: flex;
+  justify-content: space-around;
+}
+
 .each-day-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  width: 200px;
   padding-top: 10px;
-  background-color: rgb(167, 161, 161);
   margin-left: 10px;
   margin-right: 10px;
   border-radius: 15px;

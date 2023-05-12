@@ -31,9 +31,13 @@ function updateColor(temp) {
   }
 }
 
+// const weather = {
+//   cloudy =
+// }
+
 function ShowWeather({ currentWeatherData }) {
   const [color, setColor] = useState('');
-
+  console.log(currentWeatherData);
   useEffect(() => {
     if (currentWeatherData === undefined) {
       return;
@@ -49,6 +53,7 @@ function ShowWeather({ currentWeatherData }) {
     const feelLikeTemp = currentWeatherData['feelslike_c'];
     const temp = currentWeatherData['temp_c'];
     const weatherCondition = currentWeatherData['condition']['text'];
+    const weatherConditionIcon = currentWeatherData['condition']['icon'];
     const windKPH = currentWeatherData['wind_kph'];
     const windGustKPH = currentWeatherData['gust_kph'];
     const windDirection = currentWeatherData['wind_dir'];
@@ -62,6 +67,7 @@ function ShowWeather({ currentWeatherData }) {
         </div>
         <div className='box-containers'>
           <div className='temps-container' style={{ backgroundColor: color }}>
+            <img src={weatherConditionIcon} />
             <div className='temp-item'>{temp}°C</div>
             <div className='feelslike-item'>Feels Like {feelLikeTemp}°C</div>
           </div>
