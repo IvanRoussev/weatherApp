@@ -1,3 +1,9 @@
+# To run App using Docker do the following
+
+1. Run _docker build -t weather-app ._
+2. Run _docker run -d -p 3000:3000 weather-app_
+3. Then Check **_localhost:3000_** and your app should be running
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
